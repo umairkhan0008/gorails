@@ -22,3 +22,11 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+   # <% if @worker.errors.any? %>
+          <div class="alert alert-danger">
+             <% @worker.errors.full_messages.each do |message| %>
+                <div><%= message %></div>
+             <% end %>
+         </div>
+   # <% end %>

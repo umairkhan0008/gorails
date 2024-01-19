@@ -8,8 +8,7 @@ class RegistrationsController < ApplicationController
         if @worker.save
         session[:user_id] = @worker.id
         redirect_to root_path, notice: "Successfully created account"
-        else
-        flash[:alert] = "Something was wrong"
+        else 
         render :new
         end
       end
