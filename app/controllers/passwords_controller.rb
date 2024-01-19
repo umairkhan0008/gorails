@@ -1,16 +1,17 @@
 class PasswordsController < ApplicationController
-    #before_action :require_worker_logged_in!
+    before_action :require_worker_logged_in!
+    
+    def update
+      if Current.worker.update(password_params)
+        redirect_to root_path, notice: "Password Updated!"
 
-    def edit
+      else
+        render :edit
+      end
     end
 
-    def update
-         if @worker.update(password_params)
-         redirect_to root_path, notice: "Password Updated!"
-
-       else
-         render :edit
-       end
+    def edit
+      
     end
 
     private 
