@@ -5,10 +5,11 @@ class RegistrationsController < ApplicationController
 
     def create
         @worker = Worker.new(worker_params)
-        if @worker.save
+        if @worker.save!
         session[:user_id] = @worker.id
         redirect_to root_path, notice: "Successfully created account"
         else 
+        flash[:alert] = "some thing was wrong"
         render :new
         end
       end

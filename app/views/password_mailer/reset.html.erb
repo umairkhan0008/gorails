@@ -1,0 +1,6 @@
+<div>Hi <%= params[:worker].email %></div>
+some one requested a reset of your password 
+
+if this was you, click the link to reset your password, the link will expire automatically in 15 minute
+
+<%= link_to "Reset Password", password_reset_edit_url(token: @token) %>
